@@ -11,7 +11,7 @@ async function makeResponsive() {
       svgArea.remove();
   }
 
-var svgWidth =  window.innerWidth;
+var svgWidth = window.innerWidth;
 var svgHeight = window.innerHeight;
 
 
@@ -97,6 +97,21 @@ var original_Data = await d3.csv(url).catch(function(error) {
 makeResponsive();
 
 
+
 d3.select(window).on("resize", makeResponsive);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
