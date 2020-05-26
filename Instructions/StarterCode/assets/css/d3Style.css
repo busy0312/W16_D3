@@ -9,14 +9,17 @@
   fill:black;
   transition: fill 0.3s ease-out;
   text-anchor: middle;
-  font-size: 15px;
+
+
 }
 
 .inactive {
-  font-weight: lighter;
-  fill: #c9c9c9;
+  font-weight: light;
+  fill:gray;
   transition: fill 0.3s ease-out;
   text-anchor: middle;
+
+  
 }
 
 .inactive:hover {
