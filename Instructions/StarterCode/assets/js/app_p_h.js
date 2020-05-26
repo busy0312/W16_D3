@@ -19,7 +19,7 @@ var margin = {
   top: 50,
   right: 40,
   bottom: 50,
-  left: 20
+  left: 50
 };
 
 var chartWidth = svgWidth - margin.left - margin.right;
@@ -74,6 +74,8 @@ var original_Data = await d3.csv(url).catch(function(error) {
       chartGroup.append('g')
       .call(yAxis)
 
+
+
       var node = chartGroup.selectAll('.nodes')
       .data(original_Data)
       .enter().append('g')
@@ -85,12 +87,35 @@ var original_Data = await d3.csv(url).catch(function(error) {
       .attr("cx", d => xLinearScale(d.poverty))
       .attr("cy", d => yLinearScale(d.healthcare))
 
+
+
       node.append("text")
       .attr("dx", d => xLinearScale(d.poverty))
       .attr("dy",d => yLinearScale(d.healthcare)+2)
       .attr('text-anchor','middle')
       .attr('fill',"white")
       .text(d=>d.abbr);
+
+       // Create group for two x-axis labels
+      var labelsGroup = chartGroup.append("g")
+      .attr("transform", `translate(${chartWidth / 2}, ${chartHeight + 20})`);
+      
+      var povertyLabel = labelsGroup.append("text")
+      .attr("x", 0)
+      .attr("y", 20)
+      .attr("value", "poverty") // value to grab for event listener
+      .classed("active", true)
+      .text("In Poverty(%)")
+      
+  // append y axis
+  chartGroup.append("text")
+    .attr("transform", "rotate(-90)")
+    .attr("y", 0 - margin.left)
+    .attr("x", 0 - (chartHeight/2))
+    .attr("dy", "1em")
+    .classed("active", true)
+    .text("Lacks Healthecare(%)");
+
 
 }
 

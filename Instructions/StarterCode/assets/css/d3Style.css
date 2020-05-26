@@ -6,9 +6,10 @@
 
 .active {
   font-weight: bold;
-  fill: #000;
+  fill:black;
   transition: fill 0.3s ease-out;
   text-anchor: middle;
+  font-size: 15px;
 }
 
 .inactive {
