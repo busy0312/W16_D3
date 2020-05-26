@@ -95,7 +95,7 @@ async function makeResponsive() {
         .attr('text-anchor', 'middle')
         .attr('fill', "white")
         .text(d => d.abbr)
-        .classed('abbr',true);
+        .classed('abbr', true);
 
     // Create group for two x-axis labels
     var labelsGroup = chartGroup.append("g")
